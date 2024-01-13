@@ -1,0 +1,18 @@
+{
+  "name": "discord-gmgn-chat-bot",
+  "version": "1.0.0",
+  "description": "Automated Discord chatbot that sends 'GM' or 'GN' messages to your specified server targets every day.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "cron": "^3.1.6",
+    "discord-simple-api": "^1.0.0",
+    "dotenv": "^16.3.1"
+  }
+}
