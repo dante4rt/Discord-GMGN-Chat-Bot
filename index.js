@@ -29,13 +29,17 @@ const sendCronMessage = (message, time, color) => {
   return new CronJob(
     time,
     () => {
-      channelIDs.forEach((channelId) => {
+      const sendMessageSequentially = (index = 0) => {
+        if (index >= channelIDs.length) return; 
+
+        const channelId = channelIDs[index];
         if (!channelId.match(/^\d+$/)) {
           console.error(
             `Invalid channel ID "${channelId}" found in channels.txt`.red
           );
-          return;
+          return sendMessageSequentially(index + 1); 
         }
+
         bot
           .sendMessageToChannel(channelId, message)
           .then((res) => {
@@ -55,8 +59,13 @@ const sendCronMessage = (message, time, color) => {
             fs.appendFile('logs.txt', errorLog + '\n', (err) => {
               if (err) console.error('Failed to write to logs.txt'.red, err);
             });
+          })
+          .finally(() => {
+            setTimeout(() => sendMessageSequentially(index + 1), 1000);
           });
-      });
+      };
+
+      sendMessageSequentially();
     },
     null,
     true,
