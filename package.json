@@ -4,7 +4,8 @@
   "description": "Automated Discord chatbot that sends 'GM' or 'GN' messages to your specified server targets every day.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "node index.test.js"
   },
   "keywords": [],
   "author": "",
