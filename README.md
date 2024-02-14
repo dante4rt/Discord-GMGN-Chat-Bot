@@ -40,10 +40,17 @@ Before you begin, ensure you have met the following requirements:
 
 ## Usage
 
+To execute the bot directly to test it's working, run the following command:
+
+```sh
+npm test
+```
+
+after make sure it's working we can continue
 To start the bot, run the following command:
 
 ```sh
-node index.js
+npm start
 ```
 
 The bot will automatically send "GM" and "GN" messages at the specified times.
